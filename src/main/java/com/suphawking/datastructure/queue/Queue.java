@@ -15,5 +15,5 @@ public interface Queue {
 
   public Object dequeue() throws ExceptionQueueEmpty;//出队
 
-  public void Traversal();//遍历
+  public void traversal();//遍历
 }
