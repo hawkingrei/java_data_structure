@@ -3,7 +3,7 @@ package com.suphawking.datastructure.list;
 /**
  * Created by loveknut on 2016/12/20.
  */
-public class Node {
+public class Node implements Position {
   private Object element;//数据对象
   private Node next;//指向后继节点
 

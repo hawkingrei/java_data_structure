@@ -67,7 +67,7 @@ public class QueueList implements Queue {
   }
 
   //遍历（不属于ADT）
-  public void raversal() {
+  public void traversal() {
     Node pp = head;
     while (null != pp) {
       System.out.print(pp.getElem() + " ");
