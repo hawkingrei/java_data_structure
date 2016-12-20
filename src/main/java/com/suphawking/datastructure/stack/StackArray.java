@@ -31,23 +31,27 @@ public class StackArray implements Stack {
     return (top < 0);
   }
   //入栈
+
   public void push(Object obj) throws ExceptionStackFull {
-    if (getSize() == capacity)
+    if (getSize() == capacity) {
       throw new ExceptionStackFull("意外：栈溢出");
+    }
     ss[++top] = obj;
   }
 
   //取栈顶元素
   public Object top() throws ExceptionStackEmpty {
-    if (isEmpty())
+    if (isEmpty()) {
       throw new ExceptionStackEmpty("意外：栈空");
+    }
     return ss[top];
   }
 
   public Object pop() throws ExceptionStackEmpty {
     Object elem;
-    if (isEmpty())
+    if (isEmpty()) {
       throw new ExceptionStackEmpty("意外：栈空");
+    }
     elem = ss[top];
     ss[top--] = null;
     return elem;
