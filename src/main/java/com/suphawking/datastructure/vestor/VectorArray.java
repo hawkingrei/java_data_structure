@@ -55,4 +55,21 @@ public class VectorArray implements Vector {
     size--;//更新当前规模
     return bak;
   }
+
+  //插入obj，作为秩为r的元素；返回该元素
+  public Object insertAtRank(int rr, Object obj)
+      throws ExceptionBoundaryViolation {
+    if (0 > rr || rr > size) {
+      throw new ExceptionBoundaryViolation("意外：秩越界");
+    }
+    if (size >= capacity) {
+      throw new ExceptionBoundaryViolation("意外：数组溢出");
+    }
+    for (int i = size; i > rr; i--) {
+      objecta[i] = objecta[i - 1];//后续元素顺次后移
+    }
+    objecta[rr] = obj;//插入
+    size++;//更新当前规模
+    return obj;
+  }
 }
