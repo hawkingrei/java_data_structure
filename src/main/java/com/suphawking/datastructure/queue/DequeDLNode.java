@@ -76,5 +76,28 @@ public class DequeDLNode implements Deque {
     return (obj);
   }
 
+  //删除末节点
+  public Object removeLast() throws ExceptionQueueEmpty {
+    if (isEmpty()) {
+      throw new ExceptionQueueEmpty("意外：双端队列为空");
+    }
+    DLNode first = trailer.getPrev();
+    DLNode second = first.getPrev();
+    Object obj = first.getElem();
+    trailer.setPrev(second);
+    second.setNext(trailer);
+    size--;
+    return (obj);
+  }
+
+  //遍历
+  public void traversal() {
+    DLNode p = header.getNext();
+    while (p != trailer) {
+      System.out.print(p.getElem() + " ");
+      p = p.getNext();
+    }
+    System.out.println();
+  }
 
 }
