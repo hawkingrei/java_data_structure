@@ -67,4 +67,19 @@ public class VectorExtArray implements Vector {
     size++;//更新当前规模
     return obj;
   }
+
+  public Object removeAtRank(int rr)
+      throws ExceptionBoundaryViolation {
+    if (0 > rr || rr >= size) {
+      throw new ExceptionBoundaryViolation("意外：秩越界");
+    }
+    Object bak = obj[rr];
+    for (int i = rr; i < size - 1; i++) {
+      obj[i] = obj[i + 1];//后续元素顺次前移
+    }
+    size--;//更新当前规模
+    return bak;
+  }
+
+
 }
