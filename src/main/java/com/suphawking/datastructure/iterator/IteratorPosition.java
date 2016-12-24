@@ -2,10 +2,11 @@ package com.suphawking.datastructure.iterator;
 
 import com.suphawking.datastructure.list.List;
 import com.suphawking.datastructure.list.Position;
-import com.suphawking.datastructure.iterator.Iterator;
+
 /**
  * Created by loveknut on 2016/12/24.
  */
+
 public class IteratorPosition implements Iterator {
   private List list;//列表
   private Position nextPosition;//当前（下一个）位置
@@ -17,9 +18,10 @@ public class IteratorPosition implements Iterator {
 
   public IteratorPosition(List ll) {
     list = ll;
-    if (list.isEmpty())//若列表为空，则
+    if (list.isEmpty()) {
+      //若列表为空，则
       nextPosition = null;//当前位置置空
-    else {
+    } else {
       nextPosition = list.first();//从第一个位置开始//否则
     }
 
