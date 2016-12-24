@@ -1,8 +1,8 @@
 package com.suphawking.datastructure.list;
 
+import com.suphawking.datastructure.iterator.IteratorElement;
+import com.suphawking.datastructure.iterator.IteratorPosition;
 import com.suphawking.datastructure.vestor.ExceptionBoundaryViolation;
-
-import java.util.Iterator;
 
 /**
  * Created by loveknut on 2016/12/24.
@@ -58,8 +58,8 @@ public interface List {
   public Object replace(Position p, Object e) throws ExceptionPositionInvalid;
 
   //位置迭代器
-  public Iterator positions();
+  public IteratorPosition positions();
 
   //元素迭代器
-  public Iterator elements();
+  public IteratorElement elements();
 }

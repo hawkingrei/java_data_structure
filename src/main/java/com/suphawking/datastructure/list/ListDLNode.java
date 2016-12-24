@@ -1,8 +1,8 @@
 package com.suphawking.datastructure.list;
 
+import com.suphawking.datastructure.iterator.IteratorElement;
+import com.suphawking.datastructure.iterator.IteratorPosition;
 import com.suphawking.datastructure.vestor.ExceptionBoundaryViolation;
-
-import java.util.Iterator;
 
 /**
  * Created by loveknut on 2016/12/24.
@@ -156,12 +156,12 @@ public class ListDLNode implements List {
   }
 
   //位置迭代器
-  public Iterator positions() {
+  public IteratorPosition positions() {
     return new IteratorPosition(this);
   }
 
   //元素迭代器
-  public Iterator elements() {
+  public IteratorElement elements() {
     return new IteratorElement(this);
   }
 }
