@@ -18,10 +18,12 @@ public class IteratorTree implements Iterator {
   }
 
   //前序遍历
-  public void elementsPreorderIterator(TreeLinkedList T) {
-    if (null == T) return;//递归基
-    list.insertLast(T);//首先输出当前节点
-    TreeLinkedList subtree = T.getFirstChild();//从当前节点的长子开始
+  public void elementsPreorderIterator(TreeLinkedList tt) {
+    if (null == tt) {
+      return;//递归基
+    }
+    list.insertLast(tt);//首先输出当前节点
+    TreeLinkedList subtree = tt.getFirstChild();//从当前节点的长子开始
     while (null != subtree) {
       //依次对当前节点的各个孩子
       this.elementsPreorderIterator(subtree);//做前序遍历
@@ -30,33 +32,36 @@ public class IteratorTree implements Iterator {
   }
 
   //后序遍历
-  public void elementsPostorderIterator(TreeLinkedList T) {
-    if (null == T) return;//递归基
-    TreeLinkedList subtree = T.getFirstChild();//从当前节点的长子开始
+  public void elementsPostorderIterator(TreeLinkedList tt) {
+    if (null == tt) {
+      return;//递归基
+    }
+    TreeLinkedList subtree = tt.getFirstChild();//从当前节点的长子开始
     while (null != subtree) {
       //依次对当前节点的各个孩子
       this.elementsPostorderIterator(subtree);//做后序遍历
       subtree = subtree.getNextSibling();
     }
-    list.insertLast(T);//当所有后代都访问过后，最后才访问当前节点
+    list.insertLast(tt);//当所有后代都访问过后，最后才访问当前节点
   }
 
   //层次遍历
-  public void levelTraversalIterator(TreeLinkedList T) {
-    if (null == T) return;
-    QueueList Q = new QueueList();//空队
-    Q.enqueue(T);//根节点入队
-    while (!Q.isEmpty()) {
+  public void levelTraversalIterator(TreeLinkedList tt) {
+    if (null == tt) {
+      return;
+    }
+    QueueList qq = new QueueList();//空队
+    qq.enqueue(tt);//根节点入队
+    while (!qq.isEmpty()) {
       //在队列重新变空之前
-      TreeLinkedList tree = (TreeLinkedList) (Q.dequeue());//取出队列首节点
+      TreeLinkedList tree = (TreeLinkedList) (qq.dequeue());//取出队列首节点
       list.insertLast(tree);//将新出队的节点接入迭代器中
       TreeLinkedList subtree = tree.getFirstChild();//从tree的第一个孩子起
       while (null != subtree) {
         //依次找出所有孩子，并
-        Q.enqueue(subtree);//将其加至队列中
+        qq.enqueue(subtree);//将其加至队列中
         subtree = subtree.getNextSibling();
       }
     }
   }
-
 }
